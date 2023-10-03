@@ -10,6 +10,9 @@ const partiesList = document.querySelector("#parties");
 const addPartyForm = document.querySelector("#addParty");
 addPartyForm.addEventListener("submit", addParty);
 
+const partyList = document.querySelector("parties");
+partyList.addEventListener("submit", deleteParty);
+
 // sync state with API and rerender
 async function render(){
     await getParties();
@@ -76,4 +79,6 @@ async function addParty(event) {
 }
 
 // delete a party from the API
-
+async function deleteParty() {
+    
+}
