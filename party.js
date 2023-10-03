@@ -19,6 +19,16 @@ render ();
 
 // update state with parties from API
 
+async function getParties() {
+    try {
+        const response = await fetch(API_URL);
+        const json = await response.json();
+        state.parties = json.data;
+    } catch(error){
+        console.error(error);
+    }
+}
+
 // render parties from state
 
 // create a new party based on form data
