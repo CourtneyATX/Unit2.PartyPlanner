@@ -31,6 +31,7 @@ async function getParties() {
 
 // render parties from state
 
+
 // create a new party based on form data
 
 // delete a party from the API
