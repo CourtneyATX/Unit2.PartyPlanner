@@ -1,5 +1,5 @@
 const COHORT = "/2309-FSA-ET-WEB-FT-SF";
-const API_URL = "https://fsa-crud-2aa9294fe819.herokuapp.com/api/2309-FSA-ET-WEB-FT-SF/events";
+const API_URL_events = `https://fsa-crud-2aa9294fe819.herokuapp.com/api/2309-FSA-ET-WEB-FT-SF/events`;
 
 const state = {
     parties: [],
@@ -15,12 +15,12 @@ async function render(){
     await getParties();
     renderParties();
 }
-render ();
+render();
 
 // update state with parties from API
 async function getParties() {
     try {
-        const response = await fetch(API_URL);
+        const response = await fetch(API_URL_events);
         const json = await response.json();
         state.parties = json.data;
     } catch(error){
@@ -43,7 +43,7 @@ function renderParties() {
         <p>${event.location}</p>
         <p>${event.description}</p>
         `;
-        return;
+        return li;
     });
 
     partiesList.replaceChildren(...partyCards);
@@ -54,7 +54,7 @@ async function addParty(event) {
     event.preventDefault();
 
     try {
-        const response = await fetch(API_URL, {
+        const response = await fetch(API_URL_events, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({
