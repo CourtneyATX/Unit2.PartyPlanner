@@ -46,6 +46,7 @@ function renderParties() {
         <p>${event.location}</p>
         <p>${event.description}</p>
         `;
+        //TODO  add buttons to each party
         return li;
     });
 
@@ -78,7 +79,8 @@ async function addParty(event) {
     };
 }
 
-// delete a party from the API
+//TODO delete a party from the API
 async function deleteParty() {
-    
+    //check Ellen's code
+    //look for "fetch/delete" 
 }
