@@ -30,7 +30,26 @@ async function getParties() {
 }
 
 // render parties from state
+function renderParties() {
+    if(!state.parties.length){
+        partiesList.innerHTML = "<li>No parties Scheduled.</li>"
+        return;
+    };
 
+    const partyCards = state.parties.map((event) => {
+        const li = document.createElement("li");
+        li.innerHTML = `
+        <h2>${event.name}</h2>
+        <p>${event.date}</p>
+        <p>${event.time}</p>
+        <p>${event.location}</p>
+        <p>${event.description}</p>
+        `;
+        return;
+    });
+
+    partiesList.replaceChildren(...partyCards);
+};
 
 // create a new party based on form data
 
